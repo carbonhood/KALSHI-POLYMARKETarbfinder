@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Arb Finder Control Center</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="/static/css/style.css" />
+</head>
+<body>
+  <header class="site-header">
+    <div class="header-inner">
+      <div class="brand">
+        <span class="brand-mark">AF</span>
+        <div>
+          <h1>Arb Finder Control Center</h1>
+          <p class="subtitle">Kalshi × Polymarket × ForecastEx — v1.2</p>
+        </div>
+      </div>
+      <div class="header-actions">
+        <span id="scan-status" class="status-pill idle">Idle</span>
+        <button id="btn-scan-cached" class="btn btn-secondary" type="button">Quick Scan</button>
+        <button id="btn-scan-fresh" class="btn btn-primary" type="button">Full Scan</button>
+      </div>
+    </div>
+  </header>
+
+  <main class="page">
+    <section class="metrics-grid" id="metrics-grid">
+      <article class="metric-card">
+        <p class="metric-label">Opportunities</p>
+        <p class="metric-value" id="metric-opps">—</p>
+        <p class="metric-hint">After profit &amp; hold filters</p>
+      </article>
+      <article class="metric-card">
+        <p class="metric-label">Matched Pairs</p>
+        <p class="metric-value" id="metric-pairs">—</p>
+        <p class="metric-hint">Cross-venue event matches</p>
+      </article>
+      <article class="metric-card">
+        <p class="metric-label">Kalshi Markets</p>
+        <p class="metric-value" id="metric-kalshi">—</p>
+        <p class="metric-hint">In enabled categories</p>
+      </article>
+      <article class="metric-card">
+        <p class="metric-label">Polymarket Markets</p>
+        <p class="metric-value" id="metric-poly">—</p>
+        <p class="metric-hint">In enabled categories</p>
+      </article>
+    </section>
+
+    <section class="panel-row">
+      <section class="panel config-panel">
+        <div class="panel-header">
+          <h2>Configuration</h2>
+        </div>
+        <div class="panel-body" id="config-body">
+          <p class="muted">Loading…</p>
+        </div>
+      </section>
+
+      <section class="panel status-panel">
+        <div class="panel-header">
+          <h2>Scanner Status</h2>
+        </div>
+        <div class="panel-body" id="status-body">
+          <p class="muted">Loading…</p>
+        </div>
+      </section>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Opportunities</h2>
+        <span class="panel-badge" id="opp-count-badge">0</span>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table" id="opportunities-table">
+          <thead>
+            <tr>
+              <th>#</th>
+              <th>Event</th>
+              <th>Venues</th>
+              <th>Profit</th>
+              <th>Hold</th>
+              <th>Ann. Return</th>
+              <th>Score</th>
+              <th>Plan</th>
+            </tr>
+          </thead>
+          <tbody id="opportunities-body">
+            <tr><td colspan="8" class="empty-row">No results yet — run a scan.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+
+    <section class="panel">
+      <div class="panel-header">
+        <h2>Watchlist — Matched Pairs</h2>
+        <span class="panel-badge muted-badge" id="pairs-count-badge">0</span>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table" id="pairs-table">
+          <thead>
+            <tr>
+              <th>Event</th>
+              <th>Confidence</th>
+              <th>Method</th>
+              <th>Platform A</th>
+              <th>Platform B</th>
+            </tr>
+          </thead>
+          <tbody id="pairs-body">
+            <tr><td colspan="5" class="empty-row">No matched pairs yet.</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer">
+    <p>Macro arbitrage research tool — not financial advice. Prices move quickly.</p>
+  </footer>
+
+  <script src="/static/js/app.js"></script>
+</body>
+</html>

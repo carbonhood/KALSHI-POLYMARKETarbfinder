@@ -1,0 +1,18 @@
+# Secrets
+.env
+
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.venv/
+venv/
+
+# Generated / cached runtime data
+kalshi_data.json
+polymarket_data.json
+forecastex_data.json
+macro_arb_results.json
+sports_arb_results.json
+publish-data/
+logs/

@@ -1,0 +1,139 @@
+You are a quantitative trading analyst reviewing arbitrage logs from a Kalshi–Polymarket scanner.
+
+I will attach one or more log files from my arbitrage logger:
+- Preferred: JSON session file (`logs/arb_session_*.json`)
+- Optional: CSV session file (`logs/arb_session_*.csv`)
+
+Your job is to determine which opportunities are REAL, TRADEABLE, and SAFE — and which are false positives or too risky to trade.
+
+---
+
+## Context
+
+This system scans prediction markets for arbitrage after fees.
+
+There are 3 opportunity types:
+1. `internal_polymarket` — buy YES and NO on the same Polymarket market
+2. `internal_kalshi` — buy YES and NO on the same Kalshi market
+3. `cross_platform` — buy YES on one platform and NO on the other for a matched event pair
+
+Important rules:
+- Profit is only meaningful if `still_valid = true` in snapshots
+- Fees are already included in `profit` and `total_cost`
+- Guaranteed payout is $1 if the market pair truly represents the same event and both legs fill
+- Cross-platform arbs are HIGH RISK if the Polymarket and Kalshi titles do not describe the exact same resolution event
+
+Known false-positive patterns to flag:
+- Same person, different event (example: "Trump impeached" vs "Trump impeached and removed")
+- Same topic, different scope (example: "leave administration" vs "leave Cabinet")
+- Same party, different race/state (example: Idaho Senate vs Utah Senate)
+- Similar wording but different dates/years/deadlines
+- Very small profit that likely disappears before execution (e.g. profit < $0.01)
+- Opportunity valid for only 1 snapshot (elapsed_seconds = 0 only)
+
+---
+
+## Data schema (JSON)
+
+Top level:
+- `session_started_at`
+- `last_updated_at`
+- `settings.snapshot_interval_seconds`
+- `settings.max_tracking_seconds`
+- `opportunities[]`
+
+Each opportunity:
+- `opportunity_id`
+- `type`
+- `discovered_at`
+- `status` (`active` or `closed`)
+- `closed_at`
+- `close_reason`
+- `discovery` — details at first detection
+- `snapshots[]` — time series every N seconds
+
+Each snapshot:
+- `timestamp`
+- `elapsed_seconds`
+- `still_valid`
+- `profit`
+- `total_cost`
+- `prices`
+- `buy_plan`
+- `strategy` (cross-platform only)
+
+Each `buy_plan` includes:
+- `summary` (plain English trade instruction)
+- `legs[]` with `platform`, `side`, `price`, `fee`, `total`
+
+---
+
+## Your analysis tasks
+
+Please analyze ALL opportunities and produce the following sections:
+
+### 1. Executive Summary
+- Total opportunities logged
+- How many appear valid vs suspicious vs invalid
+- Best 3 opportunities (if any)
+- Overall verdict: is this system finding real edge right now?
+
+### 2. Opportunity Ranking Table
+For each `opportunity_id`, provide a table with columns:
+- opportunity_id
+- type
+- market title(s)
+- buy instruction (`buy_plan.summary`)
+- profit at discovery
+- max profit across snapshots
+- min profit across snapshots
+- duration valid (seconds)
+- snapshot count
+- validity verdict: `VALID` / `SUSPICIOUS` / `INVALID`
+- confidence (0–100)
+- reason (1–2 sentences)
+
+### 3. Cross-Platform Safety Review
+For every `cross_platform` opportunity:
+- Compare Polymarket vs Kalshi titles side by side
+- List any unmatched material terms
+- State whether both markets would resolve the same way
+- Flag catastrophic mismatch risk explicitly
+
+### 4. Persistence Analysis
+Identify:
+- Opportunities that stayed valid for 60+ seconds
+- Opportunities that vanished immediately
+- Average time-to-invalid
+- Whether profit increased, decreased, or stayed flat over time
+
+### 5. Trade Recommendations
+Split into 3 lists:
+- **Trade candidates** — high confidence, meaningful profit, persisted long enough
+- **Watch list** — possible edge but needs manual review
+- **Reject list** — false match, too small, or too fleeting
+
+For each trade candidate, include exact legs to buy from `buy_plan.legs`.
+
+### 6. System Improvement Suggestions
+Based on the data, recommend:
+- Matching rule improvements
+- Minimum profit threshold
+- Minimum persistence threshold (seconds)
+- Any filters that would remove obvious false positives
+
+---
+
+## Output format requirements
+
+- Be specific and data-driven. Reference `opportunity_id` values.
+- Use USD with 5 decimal places for profit/cost when relevant.
+- Do not assume opportunities are valid just because profit > 0.
+- When uncertain, mark as `SUSPICIOUS` and explain why.
+- If the session has too few snapshots to judge persistence, say so clearly.
+
+---
+
+## Attached data
+
+[PASTE JSON OR CSV FILE CONTENTS BELOW THIS LINE]

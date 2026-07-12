@@ -1,0 +1,41 @@
+{
+    "version": "2.1-macro-politics",
+    "events": [
+        {
+            "id": "bank_of_korea_july_2026",
+            "label": "Bank of Korea July 2026 rate decision",
+            "confidence": 1.0,
+            "event_key": ["central_bank", "bank_of_korea", 2026, 7],
+            "outcome_groups": [
+                {"kalshi": ["hold"], "polymarket": ["hold"]},
+                {"kalshi": ["hike_small", "hike"], "polymarket": ["hike"]},
+                {"kalshi": ["cut_small", "cut"], "polymarket": ["cut"]}
+            ]
+        },
+        {
+            "id": "bank_of_korea_august_2026",
+            "label": "Bank of Korea August 2026 rate decision",
+            "confidence": 1.0,
+            "event_key": ["central_bank", "bank_of_korea", 2026, 8],
+            "outcome_groups": [
+                {"kalshi": ["hold"], "polymarket": ["hold"]},
+                {"kalshi": ["hike_small", "hike"], "polymarket": ["hike"]},
+                {"kalshi": ["cut_small", "cut"], "polymarket": ["cut"]},
+                {"kalshi": ["cut_large"], "polymarket": ["cut"]}
+            ]
+        },
+        {
+            "id": "federal_reserve_july_2026",
+            "label": "Federal Reserve July 2026 FOMC",
+            "confidence": 1.0,
+            "event_key": ["central_bank", "federal_reserve", 2026, 7],
+            "outcome_groups": [
+                {"kalshi": ["hold"], "polymarket": ["hold"]},
+                {"kalshi": ["hike_small"], "polymarket": ["hike"]},
+                {"kalshi": ["hike_large"], "polymarket": ["hike"]},
+                {"kalshi": ["cut_small"], "polymarket": ["cut"]},
+                {"kalshi": ["cut_large"], "polymarket": ["cut"]}
+            ]
+        }
+    ]
+}

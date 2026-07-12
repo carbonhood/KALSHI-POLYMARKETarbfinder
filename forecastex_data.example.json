@@ -1,0 +1,14 @@
+{
+  "source": "manual_export",
+  "note": "Copy to forecastex_data.json and fill with IBKR/ForecastTrader export",
+  "markets": [
+    {
+      "market_question": "Will the Fed lower the target rate at the July 2026 meeting?",
+      "yes_price": 0.42,
+      "no_price": 0.59,
+      "end_date": "2026-07-30T20:00:00Z",
+      "event_title": "Fed Funds Target Rate July 2026",
+      "conid": "example_conid"
+    }
+  ]
+}

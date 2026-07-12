@@ -1,0 +1,63 @@
+name: Scheduled Arb Scan
+
+on:
+  schedule:
+    # Every 15 minutes (UTC). Scans take several minutes — do not run more often.
+    - cron: "*/15 * * * *"
+  workflow_dispatch:
+    inputs:
+      use_cached:
+        description: "Use cached API JSON (faster test run)"
+        required: false
+        default: "false"
+        type: choice
+        options:
+          - "false"
+          - "true"
+
+permissions:
+  contents: write
+
+concurrency:
+  group: arb-scan-publish
+  cancel-in-progress: false
+
+jobs:
+  scan-and-publish:
+    runs-on: ubuntu-latest
+    timeout-minutes: 25
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v4
+
+      - name: Checkout prior scan-data (for history)
+        uses: actions/checkout@v4
+        continue-on-error: true
+        with:
+          ref: scan-data
+          path: prior-scan-data
+
+      - name: Set up Python
+        uses: actions/setup-python@v5
+        with:
+          python-version: "3.12"
+
+      - name: Install dependencies
+        run: pip install -r requirements.txt
+
+      - name: Run scan and build publish payload
+        run: |
+          ARGS="--prior-dir prior-scan-data"
+          if [ "${{ github.event.inputs.use_cached }}" = "true" ]; then
+            ARGS="$ARGS --cached"
+          fi
+          python scripts/publish_scan_for_github.py $ARGS
+
+      - name: Publish to scan-data branch
+        uses: JamesIves/github-pages-deploy-action@v4
+        with:
+          branch: scan-data
+          folder: publish-data
+          clean: true
+          single-commit: true
