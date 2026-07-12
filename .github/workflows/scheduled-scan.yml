@@ -4,6 +4,11 @@ on:
   schedule:
     # Every 15 minutes (UTC). Scans take several minutes — do not run more often.
     - cron: "*/15 * * * *"
+  push:
+    branches: [main]
+    paths:
+      - ".github/workflows/scheduled-scan.yml"
+      - "scripts/publish_scan_for_github.py"
   workflow_dispatch:
     inputs:
       use_cached:
@@ -51,19 +56,26 @@ jobs:
       - name: Run scan and build publish payload
         id: scan
         continue-on-error: true
+        working-directory: ${{ github.workspace }}
         env:
           PYTHONPATH: ${{ github.workspace }}
         run: |
+          set -euo pipefail
           ARGS="--prior-dir prior-scan-data"
           if [ "${{ github.event.inputs.use_cached }}" = "true" ]; then
             ARGS="$ARGS --cached"
           fi
-          python scripts/publish_scan_for_github.py $ARGS
+          python3 scripts/publish_scan_for_github.py $ARGS
 
       - name: Verify publish payload exists
+        working-directory: ${{ github.workspace }}
         run: |
-          test -d publish-data || (echo "publish-data/ missing" && exit 1)
-          test -f publish-data/scan_meta.json || (echo "scan_meta.json missing" && exit 1)
+          if [ ! -d publish-data ] || [ ! -f publish-data/scan_meta.json ]; then
+            echo "::error::publish-data/ or scan_meta.json missing after scan step"
+            echo "Scan step outcome: ${{ steps.scan.outcome }}"
+            echo "Workflow commit: ${{ github.sha }}"
+            exit 1
+          fi
           ls -la publish-data/
 
       - name: Publish to scan-data branch

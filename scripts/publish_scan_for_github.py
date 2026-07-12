@@ -28,7 +28,7 @@ from config import (
 from macro_pipeline import run_macro_scan, save_macro_results
 
 MAX_HISTORY = 500
-PUBLISH_DIR = Path("publish-data")
+PUBLISH_DIR = _ROOT / "publish-data"
 
 
 def utc_now_iso():
