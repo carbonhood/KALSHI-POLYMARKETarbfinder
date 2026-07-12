@@ -193,12 +193,25 @@ MIN_MATCH_CONFIDENCE = 0.85
 MATCH_CONFIDENCE = {
     "crosswalk": 1.0,
     "event_cluster_equivalent_outcome": 0.95,
+    "llm_cache_equivalent_outcome": 0.88,
     "entity_matchup_outcome": 0.92,
     "entity_threshold_subject": 0.90,
     "high_similarity": 0.80,
     "keyword_similarity": 0.75,
 }
 CROSSWALK_PATH = "crosswalk.json"
+
+# --- LLM extraction cache (v1.3) ---
+# Scans read cache only (no API calls). Populate on demand via scripts/enrich_market_cache.py
+LLM_CACHE_ENABLED = True
+LLM_CACHE_PATH = "llm_extraction_cache.sqlite"
+LLM_MIN_CONFIDENCE = 0.85
+LLM_MODEL = "gpt-4o-mini"
+LLM_API_BASE = "https://api.openai.com/v1"
+LLM_MAX_RETRIES = 3
+LLM_REQUEST_TIMEOUT_SECONDS = 60
+LLM_REQUEST_DELAY_SECONDS = 0.25
+LLM_MATCH_METHOD = "llm_cache"
 
 # --- Arb filters (research mode) ---
 MIN_MACRO_PROFIT = 0.003

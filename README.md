@@ -21,7 +21,7 @@ Use cached data (skip API fetches):
 python main.py --cached
 ```
 
-### Web control center (v1.2)
+### Web control center (v1.3)
 
 Start the dashboard (phone-friendly, same machine or LAN):
 
@@ -34,7 +34,10 @@ Open `http://localhost:8080` (or your host IP on port 8080 from your phone on th
 
 - **Quick Scan** — uses cached Kalshi/Polymarket JSON
 - **Full Scan** — fetches fresh data from APIs
+- **LLM cache enrich** — on-demand API populate (`POST /api/enrich-cache`); scans read cache only
 - View opportunities, watchlist pairs, and live config
+
+See **[LLM_EXTRACTION.md](LLM_EXTRACTION.md)** for the v1.3 LLM cache workflow.
 
 ### Netlify dashboard (log while away)
 
@@ -59,8 +62,9 @@ python log_arbitrage.py --interval 30 --cycles 5
 Markets are paired in priority order:
 
 1. **Event clusters** — canonical `event_key` + equivalent `canonical_outcome` (Fed, CPI buckets, unemployment, etc.)
-2. **Crosswalk** — manual high-confidence mappings in `crosswalk.json`
-3. **Title/entity fuzzy match** — Polymarket × Kalshi fallback (confidence ≥ 0.85)
+2. **LLM cache (v1.3)** — cached structured extractions for markets regex parsers miss (geopolitics, legal, title drift)
+3. **Crosswalk** — manual high-confidence mappings in `crosswalk.json`
+4. **Title/entity fuzzy match** — Polymarket × Kalshi fallback (confidence ≥ 0.85)
 
 Supported event types: central bank decisions, CPI/NFP/unemployment releases, **Senate/House/governor races**, chamber control, geopolitics, **crypto thresholds**, **sports PM game winners**, **legal outcomes** (title/event_key match).
 

@@ -779,6 +779,30 @@ def outcomes_are_equivalent(outcome_a, outcome_b):
 
 def attach_event_metadata(market):
     """Attach event_key and canonical_outcome to a normalized market dict."""
+    from config import LLM_CACHE_ENABLED, LLM_MATCH_METHOD, LLM_MIN_CONFIDENCE
+
     market["event_key"] = extract_event_key(market)
-    market["canonical_outcome"] = normalize_market_outcome(market)
+    market["canonical_outcome"] = normalize_market_outcome(market) if market.get("event_key") else None
+    market["metadata_source"] = "regex" if market.get("event_key") else None
+
+    if LLM_CACHE_ENABLED and not market.get("event_key"):
+        from canonical_derive import derive_from_extraction
+        from llm_extraction_cache import get_cached_record
+
+        cached = get_cached_record(market)
+        if cached and cached.get("valid"):
+            derived = derive_from_extraction(cached["extraction"])
+            confidence = derived.get("confidence") or 0.0
+            if derived.get("event_key") and confidence >= LLM_MIN_CONFIDENCE:
+                market["event_key"] = derived["event_key"]
+                market["canonical_outcome"] = derived.get("canonical_outcome")
+                market["metadata_source"] = LLM_MATCH_METHOD
+                market["llm_event_id"] = derived.get("event_id")
+                market["llm_confidence"] = confidence
+                market["resolution_risk_flags"] = derived.get("resolution_risk_flags") or []
+            market["llm_extraction"] = cached["extraction"]
+
+    if market.get("event_key") and not market.get("canonical_outcome"):
+        market["canonical_outcome"] = normalize_market_outcome(market)
+
     return market

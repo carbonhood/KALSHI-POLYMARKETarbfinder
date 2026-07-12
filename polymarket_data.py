@@ -543,6 +543,8 @@ def _collect_market_candidates(data, max_days, macro_days=MACRO_MAX_DAYS_TO_RESO
                 "event_matchup": event_matchup,
                 "event_title": event_title,
                 "event_id": event_id,
+                "event_description": event.get("description") or "",
+                "event_resolution_source": event.get("resolutionSource") or "",
                 "market": market,
                 "market_question": market_question,
                 "end_date": end_date,
@@ -601,6 +603,17 @@ def extract_polymarket_details(max_days=None):
             "event_matchup": candidate.get("event_matchup"),
             "event_title": candidate.get("event_title", ""),
             "event_id": candidate.get("event_id"),
+            "description": (
+                market.get("description")
+                or candidate.get("event_description")
+                or ""
+            ),
+            "resolution_source": (
+                market.get("resolutionSource")
+                or candidate.get("event_resolution_source")
+                or ""
+            ),
+            "rules_primary": market.get("rulesPrimary") or market.get("rules") or "",
             "yes_token_id": candidate["yes_token_id"],
             "no_token_id": candidate["no_token_id"],
             "condition_id": market.get("conditionId"),

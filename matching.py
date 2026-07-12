@@ -383,6 +383,7 @@ def _is_better_match(candidate, current_best):
     method_rank = {
         "crosswalk": 6,
         "event_cluster_equivalent_outcome": 5,
+        "llm_cache_equivalent_outcome": 4,
         "entity_matchup_outcome": 4,
         "entity_threshold_subject": 3,
         "high_similarity": 2,

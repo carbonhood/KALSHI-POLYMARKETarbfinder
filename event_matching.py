@@ -1,7 +1,23 @@
 # Cluster markets into events and match clusters across platforms.
 from collections import defaultdict
 
+from config import LLM_MATCH_METHOD, MATCH_CONFIDENCE
 from outcome_normalization import attach_event_metadata, outcomes_are_equivalent
+
+
+def _pair_match_metadata(market_a, market_b):
+    """Confidence and method for a pair inside a matched event cluster."""
+    llm_sources = [
+        market for market in (market_a, market_b)
+        if market.get("metadata_source") == LLM_MATCH_METHOD
+    ]
+    if llm_sources:
+        confidences = [
+            market.get("llm_confidence") or MATCH_CONFIDENCE["llm_cache_equivalent_outcome"]
+            for market in llm_sources
+        ]
+        return "llm_cache_equivalent_outcome", min(confidences)
+    return "event_cluster_equivalent_outcome", MATCH_CONFIDENCE["event_cluster_equivalent_outcome"]
 
 
 def cluster_markets_by_event(markets):
@@ -61,6 +77,12 @@ def _event_label(event_key):
     if event_key[0] == "legal_outcome":
         _, subject, verb = event_key
         return f"{subject} — {verb}"
+    if event_key[0] == "geopolitical":
+        _, slug = event_key
+        return slug.replace("_", " ").title()
+    if event_key[0] == "other":
+        _, slug = event_key
+        return slug.replace("_", " ").title()
     return str(event_key)
 
 
@@ -128,11 +150,12 @@ def build_equivalent_market_pairs(matched_events):
 
                 for poly_market in poly_markets:
                     for kalshi_market in kalshi_markets:
+                        match_method, confidence = _pair_match_metadata(poly_market, kalshi_market)
                         pairs.append({
                             "polymarket": poly_market,
                             "kalshi": kalshi_market,
-                            "match_method": "event_cluster_equivalent_outcome",
-                            "confidence": 0.95,
+                            "match_method": match_method,
+                            "confidence": confidence,
                             "event_key": event["event_key"],
                             "event_label": event["event_label"],
                             "event_type": event["event_type"],
@@ -182,13 +205,14 @@ def build_equivalent_market_pairs_generic(matched_events, platform_a="A", platfo
 
                 for market_a in list_a:
                     for market_b in list_b:
+                        match_method, confidence = _pair_match_metadata(market_a, market_b)
                         pairs.append({
                             "market_a": market_a,
                             "market_b": market_b,
                             "platform_a": platform_a,
                             "platform_b": platform_b,
-                            "match_method": "event_cluster_equivalent_outcome",
-                            "confidence": 0.95,
+                            "match_method": match_method,
+                            "confidence": confidence,
                             "event_key": event["event_key"],
                             "event_label": event["event_label"],
                             "event_type": event["event_type"],

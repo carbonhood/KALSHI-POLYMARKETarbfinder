@@ -19,6 +19,8 @@ from config import (
     scan_horizon_days,
 )
 from macro_arb import scan_macro_arbitrage
+from llm_cache_stats import summarize_llm_cache_usage
+from llm_extraction_cache import cache_stats
 
 
 def _build_kalshi_funnel(result):
@@ -111,6 +113,17 @@ def run_macro_scan(quiet=False, use_cached=False):
         quiet=quiet,
     )
 
+    all_markets = list(kalshi) + list(poly) + list(fex)
+    result["llm_cache_usage"] = summarize_llm_cache_usage(all_markets)
+    result["llm_cache_store"] = cache_stats()
+
+    if not quiet:
+        usage = result["llm_cache_usage"]
+        print(
+            f"Metadata: regex={usage['regex']} llm_cache={usage['llm_cache']} "
+            f"unresolved={usage['unresolved']}"
+        )
+
     if not quiet:
         print(f"\nMatched pairs: {len(result['pairs'])}")
         print(f"Macro arb opportunities (after filters): {len(result['opportunities'])}")
@@ -127,7 +140,7 @@ def save_macro_results(result, path="macro_arb_results.json"):
         return {
             key: value
             for key, value in market.items()
-            if not key.startswith("_") and key not in ("tags",)
+            if not key.startswith("_") and key not in ("tags", "llm_extraction")
         }
 
     def _slim_opportunity(opp):
@@ -164,6 +177,8 @@ def save_macro_results(result, path="macro_arb_results.json"):
             "min_fillable_contracts": MIN_FILLABLE_CONTRACTS,
             "min_volume_24h": MIN_VOLUME_24H,
         },
+        "llm_cache_usage": result.get("llm_cache_usage"),
+        "llm_cache_store": result.get("llm_cache_store"),
     }
     with open(path, "w", encoding="utf-8") as file:
         json.dump(output, file, indent=2)

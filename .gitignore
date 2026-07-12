@@ -16,3 +16,4 @@ macro_arb_results.json
 sports_arb_results.json
 publish-data/
 logs/
+llm_extraction_cache.sqlite
