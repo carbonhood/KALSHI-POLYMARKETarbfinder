@@ -11,13 +11,16 @@ if str(_ROOT) not in sys.path:
 
 from config import (
     ENABLED_CATEGORIES,
+    ENRICH_LIQUIDITY_ON_SCAN,
     FORECASTEX_USE_IBKR_GATEWAY,
     KALSHI_MAX_MARKETS,
     MACRO_MAX_DAYS_TO_RESOLUTION,
     MAX_HOLD_DAYS_BY_CATEGORY,
     MAX_MACRO_HOLD_DAYS,
+    MIN_FILLABLE_CONTRACTS,
     MIN_MACRO_ANNUALIZED_RETURN,
     MIN_MACRO_PROFIT,
+    MIN_VOLUME_24H,
     POLITICS_MAX_DAYS_TO_RESOLUTION,
     POLYMARKET_MAX_EVENTS,
     SCAN_FORECASTEX,
@@ -58,6 +61,11 @@ def config_snapshot():
             "min_annualized_return": MIN_MACRO_ANNUALIZED_RETURN,
             "max_macro_hold_days": MAX_MACRO_HOLD_DAYS,
         },
+        "liquidity": {
+            "enrich_on_scan": ENRICH_LIQUIDITY_ON_SCAN,
+            "min_fillable_contracts": MIN_FILLABLE_CONTRACTS,
+            "min_volume_24h": MIN_VOLUME_24H,
+        },
     }
 
 
@@ -84,7 +92,9 @@ def slim_results(result):
             "kalshi": len(result.get("kalshi_macro", [])),
             "polymarket": len(result.get("polymarket_macro", [])),
             "forecastex": len(result.get("forecastex_macro", [])),
+            "kalshi_clean": result.get("kalshi_funnel", {}).get("clean_extracted"),
         },
+        "kalshi_funnel": _build_kalshi_funnel(result),
         "matched_pairs": len(result.get("pairs", [])),
         "opportunity_count": len(result.get("opportunities", [])),
         "opportunities": [_slim_opportunity(o) for o in result.get("opportunities", [])],
@@ -100,7 +110,24 @@ def slim_results(result):
             }
             for pair in result.get("pairs", [])
         ],
+        "liquidity_config": {
+            "enrich_on_scan": ENRICH_LIQUIDITY_ON_SCAN,
+            "min_fillable_contracts": MIN_FILLABLE_CONTRACTS,
+            "min_volume_24h": MIN_VOLUME_24H,
+        },
     }
+
+
+def _build_kalshi_funnel(result):
+    import kalshi_data
+
+    extract_funnel = dict(kalshi_data.last_kalshi_funnel or {})
+    category_funnel = dict(result.get("kalshi_funnel") or {})
+    merged = {**extract_funnel, **category_funnel}
+    merged["raw_fetched"] = extract_funnel.get("raw_fetched", merged.get("raw_fetched", 0))
+    merged["category_passed"] = category_funnel.get("category_passed", len(result.get("kalshi_macro", [])))
+    merged["dropped_category"] = category_funnel.get("dropped_category", 0)
+    return merged
 
 
 def load_prior_history(prior_dir):
@@ -189,6 +216,7 @@ def main():
         "scan_mode": "cached" if args.cached else "fresh",
         "scans_in_history": len(history),
         "github_actions": True,
+        "kalshi_funnel": _build_kalshi_funnel(result) if result else {},
     }
 
     (PUBLISH_DIR / "scan_meta.json").write_text(json.dumps(meta, indent=2), encoding="utf-8")

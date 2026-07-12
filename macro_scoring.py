@@ -1,4 +1,5 @@
 # Rank macro arbs by capital efficiency (annualized return, hold period).
+from config import MIN_FILLABLE_CONTRACTS, MIN_VOLUME_24H
 from market_utils import days_until_resolution
 
 
@@ -34,10 +35,13 @@ def annualized_return(profit, hold_days):
     return (profit / hold_days) * 365.0
 
 
-def score_opportunity(profit, hold_days, confidence=1.0):
-    """Composite score for ranking: annualized return weighted by match confidence."""
+def score_opportunity(profit, hold_days, confidence=1.0, fillable_contracts=None):
+    """Composite score: annualized return weighted by confidence and fillability."""
     base = annualized_return(profit, hold_days)
-    return round(base * confidence, 4)
+    fill_weight = 1.0
+    if fillable_contracts is not None:
+        fill_weight = min(float(fillable_contracts) / 10.0, 1.0)
+    return round(base * confidence * fill_weight, 4)
 
 
 def enrich_opportunity(opportunity, confidence=None):
@@ -53,12 +57,27 @@ def enrich_opportunity(opportunity, confidence=None):
 
     profit = opportunity.get("profit", 0.0)
     conf = confidence if confidence is not None else opportunity.get("confidence", 1.0)
+    fillable = (opportunity.get("liquidity") or {}).get("max_fillable_contracts")
 
     opportunity["hold_days"] = round(hold, 2)
     opportunity["annualized_return"] = round(annualized_return(profit, hold), 4)
     opportunity["annualized_return_pct"] = round(opportunity["annualized_return"] * 100, 2)
-    opportunity["score"] = score_opportunity(profit, hold, conf)
+    opportunity["score"] = score_opportunity(profit, hold, conf, fillable_contracts=fillable)
     return opportunity
+
+
+def passes_liquidity_filters(opportunity):
+    """Optional gates on fillable size and 24h volume."""
+    liquidity = opportunity.get("liquidity") or {}
+    if MIN_FILLABLE_CONTRACTS > 0:
+        max_fill = liquidity.get("max_fillable_contracts")
+        if max_fill is not None and max_fill < MIN_FILLABLE_CONTRACTS:
+            return False
+    if MIN_VOLUME_24H > 0:
+        min_vol = (liquidity.get("activity") or {}).get("min_volume_24h")
+        if min_vol is not None and min_vol < MIN_VOLUME_24H:
+            return False
+    return True
 
 
 def passes_macro_filters(

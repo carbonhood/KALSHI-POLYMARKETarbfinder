@@ -8,11 +8,13 @@ from config import KALSHI_MAX_MARKETS, KALSHI_PAGE_LIMIT, KALSHI_PRIORITY_SERIES
 from politics_normalization import US_STATE_CODES
 from fees import kalshi_fee_multiplier
 from market_utils import days_until_resolution, horizon_end_timestamp, is_tradable_binary_book, parse_iso_datetime, utc_timestamp
+from market_liquidity import kalshi_activity, kalshi_top_of_book_sizes
 
 MARKETS_URL = "https://external-api.kalshi.com/trade-api/v2/markets"
 
 # Shared list used by other modules after extract_kalshi_details() runs.
 clean_markets_kalshi = []
+last_kalshi_funnel = {}
 
 
 def fetch_kalshi_data(max_days=None):
@@ -254,6 +256,8 @@ def extract_kalshi_details(max_days=None, macro_days=None):
     Read kalshi_data.json and build clean_markets_kalshi with only markets
     that have usable yes/no ask prices and resolve within the scan horizon.
     """
+    global last_kalshi_funnel
+
     if max_days is None:
         max_days = scan_horizon_days()
     if macro_days is None:
@@ -265,8 +269,21 @@ def extract_kalshi_details(max_days=None, macro_days=None):
     now = utc_timestamp()
     max_close_ts = horizon_end_timestamp(macro_days)
 
+    funnel = {
+        "raw_fetched": 0,
+        "dropped_mve": 0,
+        "dropped_horizon": 0,
+        "dropped_no_prices": 0,
+        "dropped_book_quality": 0,
+        "clean_extracted": 0,
+        "extract_horizon_days": macro_days,
+    }
+
     for market in _iter_kalshi_markets(kalshi_data):
+        funnel["raw_fetched"] += 1
+
         if market.get("mve_selected_legs"):
+            funnel["dropped_mve"] += 1
             continue
 
         close_time = _market_close_time(market)
@@ -274,33 +291,55 @@ def extract_kalshi_details(max_days=None, macro_days=None):
         if close_dt is not None and not _is_long_dated_politics_market(market):
             close_ts = int(close_dt.timestamp())
             if close_ts < now or close_ts > max_close_ts:
+                funnel["dropped_horizon"] += 1
                 continue
 
         market_question = market.get("title")
         yes_price = market.get("yes_ask_dollars")
         no_price = market.get("no_ask_dollars")
         if yes_price is None or no_price is None:
+            funnel["dropped_no_prices"] += 1
             continue
 
         price_list = [float(yes_price), float(no_price)]
-        if is_tradable_binary_book(price_list[0], price_list[1]):
-            ticker = market.get("ticker")
-            clean_markets_kalshi.append({
-                "market_question": market_question,
-                "yes_price": price_list[0],
-                "no_price": price_list[1],
-                "ticker": ticker,
-                "event_ticker": market.get("event_ticker"),
-                "close_time": close_time,
-                "end_date": close_time,
-                "days_to_resolution": round(days_until_resolution(close_time) or 0, 2),
-                "yes_sub_title": market.get("yes_sub_title") or "",
-                "no_sub_title": market.get("no_sub_title") or "",
-                "occurrence_datetime": market.get("occurrence_datetime"),
-                "rules_primary": market.get("rules_primary") or "",
-                "fee_multiplier": kalshi_fee_multiplier(ticker),
-                "platform": "Kalshi",
-            })
+        if not is_tradable_binary_book(price_list[0], price_list[1]):
+            funnel["dropped_book_quality"] += 1
+            continue
 
+        ticker = market.get("ticker")
+        sizes = kalshi_top_of_book_sizes(market)
+        activity = kalshi_activity(market)
+        clean_markets_kalshi.append({
+            "market_question": market_question,
+            "yes_price": price_list[0],
+            "no_price": price_list[1],
+            "ticker": ticker,
+            "event_ticker": market.get("event_ticker"),
+            "close_time": close_time,
+            "end_date": close_time,
+            "days_to_resolution": round(days_until_resolution(close_time) or 0, 2),
+            "yes_sub_title": market.get("yes_sub_title") or "",
+            "no_sub_title": market.get("no_sub_title") or "",
+            "occurrence_datetime": market.get("occurrence_datetime"),
+            "rules_primary": market.get("rules_primary") or "",
+            "fee_multiplier": kalshi_fee_multiplier(ticker),
+            "platform": "Kalshi",
+            "yes_ask_size": sizes.get("yes_ask_size"),
+            "no_ask_size": sizes.get("no_ask_size"),
+            "volume": activity.get("volume"),
+            "volume_24h": activity.get("volume_24h"),
+            "open_interest": activity.get("open_interest"),
+        })
+        funnel["clean_extracted"] += 1
+
+    last_kalshi_funnel = funnel
     print(f"Total clean markets for Kalshi: {len(clean_markets_kalshi)}")
+    print(
+        "Kalshi extract funnel: "
+        f"raw={funnel['raw_fetched']} "
+        f"horizon={funnel['dropped_horizon']} "
+        f"no_prices={funnel['dropped_no_prices']} "
+        f"book={funnel['dropped_book_quality']} "
+        f"clean={funnel['clean_extracted']}"
+    )
     return clean_markets_kalshi

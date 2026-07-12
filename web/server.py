@@ -11,13 +11,16 @@ from pydantic import BaseModel
 
 from config import (
     ENABLED_CATEGORIES,
+    ENRICH_LIQUIDITY_ON_SCAN,
     FORECASTEX_USE_IBKR_GATEWAY,
     KALSHI_MAX_MARKETS,
     MACRO_MAX_DAYS_TO_RESOLUTION,
     MAX_HOLD_DAYS_BY_CATEGORY,
     MAX_MACRO_HOLD_DAYS,
+    MIN_FILLABLE_CONTRACTS,
     MIN_MACRO_ANNUALIZED_RETURN,
     MIN_MACRO_PROFIT,
+    MIN_VOLUME_24H,
     POLITICS_MAX_DAYS_TO_RESOLUTION,
     POLYMARKET_MAX_EVENTS,
     SCAN_FORECASTEX,
@@ -84,6 +87,11 @@ def _config_snapshot():
             "min_annualized_return": MIN_MACRO_ANNUALIZED_RETURN,
             "max_macro_hold_days": MAX_MACRO_HOLD_DAYS,
         },
+        "liquidity": {
+            "enrich_on_scan": ENRICH_LIQUIDITY_ON_SCAN,
+            "min_fillable_contracts": MIN_FILLABLE_CONTRACTS,
+            "min_volume_24h": MIN_VOLUME_24H,
+        },
     }
 
 
@@ -126,6 +134,7 @@ def status():
             "opportunity_count": results.get("opportunity_count", 0) if results else 0,
             "matched_pairs": results.get("matched_pairs", 0) if results else 0,
             "market_counts": results.get("macro_market_counts", {}) if results else {},
+            "kalshi_funnel": results.get("kalshi_funnel", {}) if results else {},
         },
         "config": _config_snapshot(),
     }

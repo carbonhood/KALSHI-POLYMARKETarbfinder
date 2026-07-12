@@ -1,7 +1,7 @@
 # Helpers for parsing resolution dates and filtering by time horizon.
 from datetime import datetime, timedelta, timezone
 
-from config import MAX_DAYS_TO_RESOLUTION
+from config import MAX_BINARY_BOOK_SUM, MAX_DAYS_TO_RESOLUTION, MIN_BINARY_BOOK_SUM
 
 
 def utc_now():
@@ -63,7 +63,7 @@ def is_tradable_binary_book(yes_price, no_price):
         return False
 
     total = yes_price + no_price
-    return 0.88 <= total <= 1.12
+    return MIN_BINARY_BOOK_SUM <= total <= MAX_BINARY_BOOK_SUM
 
 
 def polymarket_horizon_dates(max_days=MAX_DAYS_TO_RESOLUTION):
