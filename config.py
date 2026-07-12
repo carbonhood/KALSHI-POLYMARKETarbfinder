@@ -18,6 +18,13 @@ POLYMARKET_PAGE_LIMIT = 100
 POLYMARKET_CLOB_BATCH_SIZE = 500
 KALSHI_POLY_SEARCH_LIMIT = 120
 
+# Kalshi API pacing (avoid 429 rate limits on bulk + politics supplements)
+KALSHI_REQUEST_MAX_RETRIES = 8
+KALSHI_PAGE_DELAY_SECONDS = 0.25
+KALSHI_SERIES_DELAY_SECONDS = 0.35
+KALSHI_POLITICS_SERIES_DELAY_SECONDS = 0.5
+KALSHI_USE_CACHED_ON_RATE_LIMIT = True
+
 # --- Category toggles ---
 # Tier 1: macro, politics_elections, geopolitics
 # Tier 2: sports_pm, crypto, legal

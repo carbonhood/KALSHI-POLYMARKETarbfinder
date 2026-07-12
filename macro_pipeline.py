@@ -40,9 +40,7 @@ def fetch_all_macro_data(quiet=False):
     if SCAN_KALSHI:
         if not quiet:
             print("Fetching Kalshi markets...")
-        kalshi_data.fetch_kalshi_data(max_days=horizon)
-        kalshi_data.fetch_priority_series(max_days=horizon)
-        kalshi_data.fetch_politics_state_series()
+        kalshi_data.fetch_kalshi_data_with_priorities(max_days=horizon)
 
     if SCAN_POLYMARKET:
         if not quiet:

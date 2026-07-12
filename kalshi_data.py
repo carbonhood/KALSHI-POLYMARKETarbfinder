@@ -1,10 +1,21 @@
 # Fetches raw Kalshi market data and converts it into a normalized market list.
 import json
 import time
+from pathlib import Path
 
 import requests
 
-from config import KALSHI_MAX_MARKETS, KALSHI_PAGE_LIMIT, KALSHI_PRIORITY_SERIES, scan_horizon_days
+from config import (
+    KALSHI_MAX_MARKETS,
+    KALSHI_PAGE_DELAY_SECONDS,
+    KALSHI_PAGE_LIMIT,
+    KALSHI_POLITICS_SERIES_DELAY_SECONDS,
+    KALSHI_PRIORITY_SERIES,
+    KALSHI_REQUEST_MAX_RETRIES,
+    KALSHI_SERIES_DELAY_SECONDS,
+    KALSHI_USE_CACHED_ON_RATE_LIMIT,
+    scan_horizon_days,
+)
 from politics_normalization import US_STATE_CODES
 from fees import kalshi_fee_multiplier
 from market_utils import days_until_resolution, horizon_end_timestamp, is_tradable_binary_book, parse_iso_datetime, utc_timestamp
@@ -15,6 +26,73 @@ MARKETS_URL = "https://external-api.kalshi.com/trade-api/v2/markets"
 # Shared list used by other modules after extract_kalshi_details() runs.
 clean_markets_kalshi = []
 last_kalshi_funnel = {}
+
+
+class KalshiRateLimitError(requests.HTTPError):
+    """Kalshi API rate limit exceeded after retries."""
+
+
+def _kalshi_retry_delay(response, attempt):
+    """Seconds to wait before retrying a throttled Kalshi request."""
+    retry_after = response.headers.get("Retry-After") if response is not None else None
+    if retry_after:
+        try:
+            return max(float(retry_after), 1.0)
+        except ValueError:
+            pass
+    return min(2.0 * (2 ** attempt), 60.0)
+
+
+def kalshi_get(params, context="markets"):
+    """
+    GET Kalshi /markets with retry/backoff on 429 and transient 5xx errors.
+    """
+    last_response = None
+    for attempt in range(KALSHI_REQUEST_MAX_RETRIES):
+        response = requests.get(MARKETS_URL, params=params, timeout=60)
+        last_response = response
+
+        if response.status_code == 429:
+            delay = _kalshi_retry_delay(response, attempt)
+            print(
+                f"  Kalshi rate limit ({context}), "
+                f"retry {attempt + 1}/{KALSHI_REQUEST_MAX_RETRIES} in {delay:.1f}s"
+            )
+            time.sleep(delay)
+            continue
+
+        if response.status_code in (500, 502, 503, 504):
+            delay = _kalshi_retry_delay(response, attempt)
+            print(
+                f"  Kalshi server error {response.status_code} ({context}), "
+                f"retry {attempt + 1}/{KALSHI_REQUEST_MAX_RETRIES} in {delay:.1f}s"
+            )
+            time.sleep(delay)
+            continue
+
+        if response.status_code == 404:
+            return response
+
+        response.raise_for_status()
+        return response
+
+    if last_response is not None and last_response.status_code == 429:
+        raise KalshiRateLimitError(
+            f"Kalshi rate limit exceeded for {context} after {KALSHI_REQUEST_MAX_RETRIES} retries",
+            response=last_response,
+        )
+    if last_response is not None:
+        last_response.raise_for_status()
+    raise requests.RequestException(f"Kalshi request failed for {context}")
+
+
+def _kalshi_cache_path():
+    return "kalshi_data.json"
+
+
+def kalshi_cache_available():
+    """True when a prior Kalshi payload exists on disk."""
+    return Path(_kalshi_cache_path()).exists()
 
 
 def fetch_kalshi_data(max_days=None):
@@ -43,8 +121,7 @@ def fetch_kalshi_data(max_days=None):
         if cursor:
             params["cursor"] = cursor
 
-        response = requests.get(MARKETS_URL, params=params, timeout=60)
-        response.raise_for_status()
+        response = kalshi_get(params, context="bulk markets")
         page_data = response.json()
         if "error" in page_data:
             raise ValueError(f"Kalshi API error: {page_data['error']}")
@@ -56,7 +133,7 @@ def fetch_kalshi_data(max_days=None):
         if not next_cursor or not markets:
             break
         cursor = next_cursor
-        time.sleep(0.05)
+        time.sleep(KALSHI_PAGE_DELAY_SECONDS)
 
     kalshi_payload = {
         "fetch_mode": "short_term_markets",
@@ -65,7 +142,7 @@ def fetch_kalshi_data(max_days=None):
         "markets": all_markets[:KALSHI_MAX_MARKETS],
         "cursor": cursor,
     }
-    with open("kalshi_data.json", "w", encoding="utf-8") as file:
+    with open(_kalshi_cache_path(), "w", encoding="utf-8") as file:
         json.dump(kalshi_payload, file, indent=4)
     print(
         f"Kalshi data saved to kalshi_data.json "
@@ -84,7 +161,7 @@ def fetch_priority_series(max_days=None):
     if max_days is None:
         max_days = scan_horizon_days()
 
-    with open("kalshi_data.json", "r", encoding="utf-8") as file:
+    with open(_kalshi_cache_path(), "r", encoding="utf-8") as file:
         payload = json.load(file)
 
     existing = payload.get("markets", [])
@@ -102,15 +179,10 @@ def fetch_priority_series(max_days=None):
             if cursor:
                 params["cursor"] = cursor
 
-            for attempt in range(4):
-                response = requests.get(MARKETS_URL, params=params, timeout=60)
-                if response.status_code == 429:
-                    time.sleep(1.5 * (attempt + 1))
-                    continue
-                response.raise_for_status()
-                break
-            else:
-                print(f"  Kalshi rate limit: skipping series {series_ticker}")
+            try:
+                response = kalshi_get(params, context=f"series {series_ticker}")
+            except KalshiRateLimitError:
+                print(f"  Kalshi rate limit: skipping remaining priority series after {series_ticker}")
                 break
 
             page_data = response.json()
@@ -127,11 +199,13 @@ def fetch_priority_series(max_days=None):
             cursor = page_data.get("cursor")
             if not cursor or not markets:
                 break
-            time.sleep(0.05)
+            time.sleep(KALSHI_SERIES_DELAY_SECONDS)
+
+        time.sleep(KALSHI_SERIES_DELAY_SECONDS)
 
     payload["markets"] = existing
     payload["priority_series_added"] = added
-    with open("kalshi_data.json", "w", encoding="utf-8") as file:
+    with open(_kalshi_cache_path(), "w", encoding="utf-8") as file:
         json.dump(payload, file, indent=4)
 
     print(f"Kalshi priority series supplement added {added} markets")
@@ -144,33 +218,32 @@ def fetch_politics_state_series():
 
     Bulk pagination often misses these; each state is a separate Kalshi series.
     """
-    with open("kalshi_data.json", "r", encoding="utf-8") as file:
+    with open(_kalshi_cache_path(), "r", encoding="utf-8") as file:
         payload = json.load(file)
 
     existing = payload.get("markets", [])
     seen_tickers = {market.get("ticker") for market in existing}
     added = 0
+    rate_limited = False
 
     prefixes = [f"SENATE{code.upper()}" for code in US_STATE_CODES]
     prefixes += [f"HOUSE{code.upper()}" for code in US_STATE_CODES]
 
     for series_ticker in prefixes:
+        if rate_limited:
+            break
+
         cursor = None
         while True:
             params = {"status": "open", "limit": KALSHI_PAGE_LIMIT, "series_ticker": series_ticker}
             if cursor:
                 params["cursor"] = cursor
 
-            for attempt in range(4):
-                response = requests.get(MARKETS_URL, params=params, timeout=60)
-                if response.status_code == 429:
-                    time.sleep(2.0 * (attempt + 1))
-                    continue
-                if response.status_code == 404:
-                    break
-                response.raise_for_status()
-                break
-            else:
+            try:
+                response = kalshi_get(params, context=f"politics {series_ticker}")
+            except KalshiRateLimitError:
+                print("  Kalshi rate limit: stopping politics state series supplement")
+                rate_limited = True
                 break
 
             if response.status_code == 404:
@@ -189,11 +262,14 @@ def fetch_politics_state_series():
             cursor = page_data.get("cursor")
             if not cursor or not markets:
                 break
-            time.sleep(0.15)
+            time.sleep(KALSHI_POLITICS_SERIES_DELAY_SECONDS)
+
+        time.sleep(KALSHI_POLITICS_SERIES_DELAY_SECONDS)
 
     payload["markets"] = existing
     payload["politics_series_added"] = added
-    with open("kalshi_data.json", "w", encoding="utf-8") as file:
+    payload["politics_rate_limited"] = rate_limited
+    with open(_kalshi_cache_path(), "w", encoding="utf-8") as file:
         json.dump(payload, file, indent=4)
 
     print(f"Kalshi politics state series added {added} markets")
@@ -202,14 +278,20 @@ def fetch_politics_state_series():
 
 def fetch_kalshi_data_with_priorities(max_days=None):
     """Fetch bulk markets plus priority and politics series."""
-    fetch_kalshi_data(max_days=max_days)
-    fetch_priority_series(max_days=max_days)
-    fetch_politics_state_series()
+    try:
+        fetch_kalshi_data(max_days=max_days)
+        fetch_priority_series(max_days=max_days)
+        fetch_politics_state_series()
+    except KalshiRateLimitError as exc:
+        if KALSHI_USE_CACHED_ON_RATE_LIMIT and kalshi_cache_available():
+            print(f"Kalshi fetch rate limited; using cached {_kalshi_cache_path()}: {exc}")
+            return
+        raise
 
 
 def get_raw_kalshi_markets():
     """Return raw Kalshi market dicts from the saved JSON payload."""
-    with open("kalshi_data.json", "r", encoding="utf-8") as file:
+    with open(_kalshi_cache_path(), "r", encoding="utf-8") as file:
         kalshi_data = json.load(file)
     return list(_iter_kalshi_markets(kalshi_data))
 
@@ -262,7 +344,7 @@ def extract_kalshi_details(max_days=None, macro_days=None):
         max_days = scan_horizon_days()
     if macro_days is None:
         macro_days = max_days
-    with open("kalshi_data.json", "r", encoding="utf-8") as file:
+    with open(_kalshi_cache_path(), "r", encoding="utf-8") as file:
         kalshi_data = json.load(file)
 
     clean_markets_kalshi.clear()
