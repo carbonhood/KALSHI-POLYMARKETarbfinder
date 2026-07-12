@@ -149,6 +149,21 @@ def main():
             "error": None,
         }
     else:
+        (PUBLISH_DIR / "macro_arb_latest.json").write_text(
+            json.dumps(
+                {
+                    "macro_market_counts": {},
+                    "matched_pairs": 0,
+                    "opportunity_count": 0,
+                    "opportunities": [],
+                    "matched_pair_summaries": [],
+                    "scanned_at": started,
+                    "error": error,
+                },
+                indent=2,
+            ),
+            encoding="utf-8",
+        )
         history_entry = {
             "timestamp": started,
             "opportunity_count": 0,
@@ -186,8 +201,8 @@ def main():
             f"pairs={len(result['pairs'])}"
         )
     if error:
-        sys.exit(1)
-    return 0
+        print(f"Scan completed with error (metadata still published): {error}", file=sys.stderr)
+    return 1 if error else 0
 
 
 if __name__ == "__main__":

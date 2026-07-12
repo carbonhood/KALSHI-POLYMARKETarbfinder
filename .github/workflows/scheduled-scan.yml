@@ -30,6 +30,8 @@ jobs:
     steps:
       - name: Checkout code
         uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
 
       - name: Checkout prior scan-data (for history)
         uses: actions/checkout@v4
@@ -47,6 +49,8 @@ jobs:
         run: pip install -r requirements.txt
 
       - name: Run scan and build publish payload
+        id: scan
+        continue-on-error: true
         run: |
           ARGS="--prior-dir prior-scan-data"
           if [ "${{ github.event.inputs.use_cached }}" = "true" ]; then
@@ -54,10 +58,34 @@ jobs:
           fi
           python scripts/publish_scan_for_github.py $ARGS
 
+      - name: Verify publish payload exists
+        run: |
+          test -d publish-data || (echo "publish-data/ missing" && exit 1)
+          test -f publish-data/scan_meta.json || (echo "scan_meta.json missing" && exit 1)
+          ls -la publish-data/
+
       - name: Publish to scan-data branch
-        uses: JamesIves/github-pages-deploy-action@v4
-        with:
-          branch: scan-data
-          folder: publish-data
-          clean: true
-          single-commit: true
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set -euo pipefail
+          git config user.name "github-actions[bot]"
+          git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+
+          WORK="$(mktemp -d)"
+          cp -r publish-data/* "$WORK/"
+
+          cd "$WORK"
+          git init -b scan-data
+          git add -A
+          git commit -m "scan $(date -u +%Y-%m-%dT%H:%M:%SZ)"
+
+          REPO="${GITHUB_SERVER_URL}/${GITHUB_REPOSITORY}.git"
+          git remote add origin "https://x-access-token:${GITHUB_TOKEN}@${REPO#https://}"
+          git push --force origin scan-data
+
+      - name: Report scan status
+        if: steps.scan.outcome == 'failure'
+        run: |
+          echo "::warning::Scan step failed but error metadata was still published to scan-data."
+          exit 0
