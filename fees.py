@@ -364,6 +364,8 @@ def build_two_venue_buy_plan(strategy_key, market_a, market_b, platform_a, platf
             "price": yes_market["yes_price"],
             "fee": strategy["yes_fee"],
             "total": round(yes_market["yes_price"] + strategy["yes_fee"], 5),
+            "size_at_price": yes_market.get("yes_ask_size"),
+            "volume_24h": yes_market.get("volume_24h"),
         },
         {
             "platform": no_market.get("platform", no_platform),
@@ -372,6 +374,8 @@ def build_two_venue_buy_plan(strategy_key, market_a, market_b, platform_a, platf
             "price": no_market["no_price"],
             "fee": strategy["no_fee"],
             "total": round(no_market["no_price"] + strategy["no_fee"], 5),
+            "size_at_price": no_market.get("no_ask_size"),
+            "volume_24h": no_market.get("volume_24h"),
         },
     ]
     if strategy.get("spread_premium"):

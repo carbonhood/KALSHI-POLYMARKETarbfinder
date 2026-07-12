@@ -30,6 +30,7 @@ from config import (
 from entity_matching import extract_matchup
 from fees import polymarket_fee_rate_from_market
 from market_utils import days_until_resolution, is_tradable_binary_book, polymarket_horizon_dates, within_resolution_horizon
+from market_liquidity import polymarket_activity_from_gamma
 from polymarket_clob import fetch_buy_prices, prices_from_tokens
 
 BASE_URL = "https://gamma-api.polymarket.com/events"
@@ -586,6 +587,7 @@ def extract_polymarket_details(max_days=None):
             continue
 
         fee_rate = polymarket_fee_rate_from_market(market, event_tags)
+        activity = polymarket_activity_from_gamma(market)
         clean_markets_polymarket.append({
             "market_question": candidate["market_question"],
             "yes_price": yes_price,
@@ -603,6 +605,10 @@ def extract_polymarket_details(max_days=None):
             "no_token_id": candidate["no_token_id"],
             "condition_id": market.get("conditionId"),
             "price_source": "clob_best_ask",
+            "volume": activity.get("volume"),
+            "volume_24h": activity.get("volume_24h"),
+            "liquidity": activity.get("liquidity"),
+            "open_interest": activity.get("open_interest"),
         })
 
     print(f"Total clean markets: {len(clean_markets_polymarket)}")

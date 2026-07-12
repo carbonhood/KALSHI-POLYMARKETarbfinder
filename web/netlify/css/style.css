@@ -411,3 +411,36 @@ body {
     grid-template-columns: 1fr;
   }
 }
+
+.opp-row {
+  cursor: pointer;
+}
+
+.opp-row:hover {
+  background: var(--slate-100);
+}
+
+.opp-row.expanded {
+  background: var(--green-50);
+}
+
+.opp-detail-row td {
+  background: var(--slate-100);
+  padding: 0.75rem 1rem;
+}
+
+.opp-detail-grid {
+  display: grid;
+  gap: 0.5rem;
+}
+
+.opp-detail-leg {
+  font-size: 0.875rem;
+  color: var(--slate-700);
+}
+
+.funnel-line {
+  font-size: 0.8rem;
+  color: var(--slate-500);
+  margin-top: 0.25rem;
+}

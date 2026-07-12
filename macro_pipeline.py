@@ -6,17 +6,32 @@ import forecastex_data
 import kalshi_data
 import polymarket_data
 from config import (
+    ENRICH_LIQUIDITY_ON_SCAN,
     FORECASTEX_USE_IBKR_GATEWAY,
-    MACRO_MAX_DAYS_TO_RESOLUTION,
     MAX_MACRO_HOLD_DAYS,
+    MIN_FILLABLE_CONTRACTS,
     MIN_MACRO_ANNUALIZED_RETURN,
     MIN_MACRO_PROFIT,
+    MIN_VOLUME_24H,
     SCAN_FORECASTEX,
     SCAN_KALSHI,
     SCAN_POLYMARKET,
     scan_horizon_days,
 )
 from macro_arb import scan_macro_arbitrage
+
+
+def _build_kalshi_funnel(result):
+    """Merge extract-stage and category-stage Kalshi funnel stats."""
+    import kalshi_data
+
+    extract_funnel = dict(kalshi_data.last_kalshi_funnel or {})
+    category_funnel = dict(result.get("kalshi_funnel") or {})
+    merged = {**extract_funnel, **category_funnel}
+    merged["raw_fetched"] = extract_funnel.get("raw_fetched", merged.get("raw_fetched", 0))
+    merged["category_passed"] = category_funnel.get("category_passed", len(result.get("kalshi_macro", [])))
+    merged["dropped_category"] = category_funnel.get("dropped_category", 0)
+    return merged
 
 
 def fetch_all_macro_data(quiet=False):
@@ -52,7 +67,7 @@ def extract_all_macro_markets(quiet=False):
 
     horizon = scan_horizon_days()
     if SCAN_KALSHI:
-        kalshi_data.extract_kalshi_details(max_days=horizon, macro_days=MACRO_MAX_DAYS_TO_RESOLUTION)
+        kalshi_data.extract_kalshi_details(max_days=horizon, macro_days=horizon)
         kalshi = list(kalshi_data.clean_markets_kalshi)
 
         if SCAN_POLYMARKET:
@@ -128,7 +143,9 @@ def save_macro_results(result, path="macro_arb_results.json"):
             "kalshi": len(result.get("kalshi_macro", [])),
             "polymarket": len(result.get("polymarket_macro", [])),
             "forecastex": len(result.get("forecastex_macro", [])),
+            "kalshi_clean": result.get("kalshi_funnel", {}).get("clean_extracted"),
         },
+        "kalshi_funnel": _build_kalshi_funnel(result),
         "matched_pairs": len(result.get("pairs", [])),
         "opportunity_count": len(result.get("opportunities", [])),
         "opportunities": [_slim_opportunity(o) for o in result.get("opportunities", [])],
@@ -144,6 +161,11 @@ def save_macro_results(result, path="macro_arb_results.json"):
             }
             for pair in result.get("pairs", [])
         ],
+        "liquidity_config": {
+            "enrich_on_scan": ENRICH_LIQUIDITY_ON_SCAN,
+            "min_fillable_contracts": MIN_FILLABLE_CONTRACTS,
+            "min_volume_24h": MIN_VOLUME_24H,
+        },
     }
     with open(path, "w", encoding="utf-8") as file:
         json.dump(output, file, indent=2)

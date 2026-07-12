@@ -3,15 +3,12 @@ from collections import defaultdict
 
 import event_matching
 import matching
-from config import MIN_MACRO_PROFIT, MIN_MATCH_CONFIDENCE
+from config import ENRICH_LIQUIDITY_ON_SCAN, MAX_HOLD_DAYS_BY_CATEGORY, MIN_MACRO_PROFIT, MIN_MATCH_CONFIDENCE
 from crosswalk import match_from_crosswalk
 from fees import build_two_venue_buy_plan, two_venue_arbitrage_cost
 from market_categories import filter_by_enabled_categories
-from macro_scoring import enrich_opportunity, passes_macro_filters
-from config import MAX_HOLD_DAYS_BY_CATEGORY
-from outcome_normalization import attach_event_metadata
-
-
+from macro_scoring import enrich_opportunity, passes_liquidity_filters, passes_macro_filters
+from market_liquidity import enrich_opportunities_liquidity
 from outcome_normalization import attach_event_metadata
 
 
@@ -159,12 +156,23 @@ def build_all_venue_pairs(kalshi_markets, poly_markets, forecastex_markets, quie
     for market in forecastex_markets:
         attach_event_metadata(market)
 
+    kalshi_before = len(kalshi_markets)
     kalshi = filter_by_enabled_categories(_attach_platform(list(kalshi_markets), "Kalshi"))
+    poly_before = len(poly_markets)
     poly = filter_by_enabled_categories(_attach_platform(list(poly_markets), "Polymarket"))
+    fex_before = len(forecastex_markets)
     fex = filter_by_enabled_categories(_attach_platform(list(forecastex_markets), "ForecastEx"))
+
+    kalshi_funnel = {
+        "clean_extracted": kalshi_before,
+        "category_passed": len(kalshi),
+        "dropped_category": kalshi_before - len(kalshi),
+    }
 
     if not quiet:
         print(f"Category markets: Kalshi={len(kalshi)}, Polymarket={len(poly)}, ForecastEx={len(fex)}")
+        if kalshi_funnel["dropped_category"]:
+            print(f"  Kalshi category filter dropped {kalshi_funnel['dropped_category']} markets")
 
     all_pairs = []
     if poly and kalshi:
@@ -186,6 +194,9 @@ def build_all_venue_pairs(kalshi_markets, poly_markets, forecastex_markets, quie
         "polymarket_macro": poly,
         "forecastex_macro": fex,
         "pairs": list(deduped.values()),
+        "kalshi_funnel": kalshi_funnel,
+        "poly_before_category": poly_before,
+        "fex_before_category": fex_before,
     }
 
 
@@ -211,6 +222,19 @@ def scan_macro_arbitrage(
         min_profit=min_profit,
         min_annualized_return=min_annualized_return,
     )
+
+    if ENRICH_LIQUIDITY_ON_SCAN and opportunities:
+        if not quiet:
+            print(f"Enriching {len(opportunities)} opportunities with liquidity data...")
+        opportunities = enrich_opportunities_liquidity(opportunities)
+        filtered = []
+        for opportunity in opportunities:
+            if passes_liquidity_filters(opportunity):
+                enrich_opportunity(opportunity)
+                filtered.append(opportunity)
+        opportunities = filtered
+        opportunities.sort(key=lambda item: item.get("score", 0), reverse=True)
+
     return {
         **bundle,
         "opportunities": opportunities,
