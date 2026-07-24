@@ -1,0 +1,696 @@
+{
+  "macro_market_counts": {
+    "kalshi": 204,
+    "polymarket": 4275,
+    "forecastex": 0,
+    "kalshi_clean": 6442
+  },
+  "kalshi_funnel": {
+    "raw_fetched": 8493,
+    "dropped_mve": 0,
+    "dropped_horizon": 137,
+    "dropped_no_prices": 0,
+    "dropped_book_quality": 1914,
+    "clean_extracted": 6442,
+    "extract_horizon_days": 150,
+    "category_passed": 204,
+    "dropped_category": 6238
+  },
+  "matched_pairs": 74,
+  "opportunity_count": 0,
+  "opportunities": [],
+  "matched_pair_summaries": [
+    {
+      "event_label": "Federal Reserve (2026-07)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Fed decrease interest rates by 50+ bps after the July 2026 meeting?",
+      "market_b": "Will the Federal Reserve Cut rates by >25bps at their July 2026 meeting?"
+    },
+    {
+      "event_label": "Federal Reserve (2026-07)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Fed decrease interest rates by 25 bps after the July 2026 meeting?",
+      "market_b": "Will the Federal Reserve Cut rates by 25bps at their July 2026 meeting?"
+    },
+    {
+      "event_label": "Federal Reserve July 2026 FOMC",
+      "match_method": "crosswalk",
+      "confidence": 1.0,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will there be no change in Fed interest rates after the July 2026 meeting?",
+      "market_b": "Will the Federal Reserve Hike rates by 0bps at their July 2026 meeting?"
+    },
+    {
+      "event_label": "Federal Reserve (2026-07)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Fed increase interest rates by 25 bps after the July 2026 meeting?",
+      "market_b": "Will the Federal Reserve Hike rates by 25bps at their July 2026 meeting?"
+    },
+    {
+      "event_label": "Federal Reserve (2026-07)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Fed increase interest rates by 50+ bps after the July 2026 meeting?",
+      "market_b": "Will the Federal Reserve Hike rates by >25bps at their July 2026 meeting?"
+    },
+    {
+      "event_label": "U3 Unemployment release (2026-07)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the July 2026 unemployment rate be 4.0%?",
+      "market_b": "Unemployment rate in Jul 2026?"
+    },
+    {
+      "event_label": "U3 Unemployment release (2026-07)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the July 2026 unemployment rate be 4.1%?",
+      "market_b": "Unemployment rate in Jul 2026?"
+    },
+    {
+      "event_label": "U3 Unemployment release (2026-07)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the July 2026 unemployment rate be 4.2%?",
+      "market_b": "Unemployment rate in Jul 2026?"
+    },
+    {
+      "event_label": "U3 Unemployment release (2026-07)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the July 2026 unemployment rate be 4.3%?",
+      "market_b": "Unemployment rate in Jul 2026?"
+    },
+    {
+      "event_label": "U3 Unemployment release (2026-07)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the July 2026 unemployment rate be 4.4%?",
+      "market_b": "Unemployment rate in Jul 2026?"
+    },
+    {
+      "event_label": "U3 Unemployment release (2026-07)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the July 2026 unemployment rate be 4.5%?",
+      "market_b": "Unemployment rate in Jul 2026?"
+    },
+    {
+      "event_label": "U3 Unemployment release (2026-07)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the July 2026 unemployment rate be 4.6%?",
+      "market_b": "Unemployment rate in Jul 2026?"
+    },
+    {
+      "event_label": "Senate Race AL (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the Alabama Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in Alabama?"
+    },
+    {
+      "event_label": "Senate Race AL (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the Alabama Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in Alabama?"
+    },
+    {
+      "event_label": "Senate Race AR (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the Arkansas Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in Arkansas?"
+    },
+    {
+      "event_label": "Senate Race AR (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the Arkansas Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in Arkansas?"
+    },
+    {
+      "event_label": "Senate Race CO (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the Colorado Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in Colorado?"
+    },
+    {
+      "event_label": "Senate Race CO (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the Colorado Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in Colorado?"
+    },
+    {
+      "event_label": "Senate Race DE (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the Delaware Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in Delaware?"
+    },
+    {
+      "event_label": "Senate Race DE (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the Delaware Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in Delaware?"
+    },
+    {
+      "event_label": "Senate Race GA (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the Georgia Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in Georgia?"
+    },
+    {
+      "event_label": "Senate Race GA (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the Georgia Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in Georgia?"
+    },
+    {
+      "event_label": "Senate Race IA (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the Iowa Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in Iowa?"
+    },
+    {
+      "event_label": "Senate Race IA (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the Iowa Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in Iowa?"
+    },
+    {
+      "event_label": "Senate Race ID (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the Idaho Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in Idaho?"
+    },
+    {
+      "event_label": "Senate Race ID (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the Idaho Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in Idaho?"
+    },
+    {
+      "event_label": "Senate Race IL (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the Illinois Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in Illinois?"
+    },
+    {
+      "event_label": "Senate Race IL (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the Illinois Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in Illinois?"
+    },
+    {
+      "event_label": "Senate Race KS (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the Kansas Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in Kansas?"
+    },
+    {
+      "event_label": "Senate Race KS (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the Kansas Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in Kansas?"
+    },
+    {
+      "event_label": "Senate Race KY (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the Kentucky Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in Kentucky?"
+    },
+    {
+      "event_label": "Senate Race KY (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the Kentucky Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in Kentucky?"
+    },
+    {
+      "event_label": "Senate Race MA (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the Massachusetts Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in Massachusetts?"
+    },
+    {
+      "event_label": "Senate Race MA (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the Massachusetts Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in Massachusetts?"
+    },
+    {
+      "event_label": "Senate Race ME (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the Maine Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in Maine?"
+    },
+    {
+      "event_label": "Senate Race ME (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the Maine Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in Maine?"
+    },
+    {
+      "event_label": "Senate Race MI (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the Michigan Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in Michigan?"
+    },
+    {
+      "event_label": "Senate Race MI (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the Michigan Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in Michigan?"
+    },
+    {
+      "event_label": "Senate Race MN (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the Minnesota Senate race in 2026?",
+      "market_b": "Will Democratic (DFL)s win the Senate race in Minnesota?"
+    },
+    {
+      "event_label": "Senate Race MN (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the Minnesota Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in Minnesota?"
+    },
+    {
+      "event_label": "Senate Race MS (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the Mississippi Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in Mississippi?"
+    },
+    {
+      "event_label": "Senate Race MS (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the Mississippi Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in Mississippi?"
+    },
+    {
+      "event_label": "Senate Race MT (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the Montana Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in Montana?"
+    },
+    {
+      "event_label": "Senate Race MT (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the Montana Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in Montana?"
+    },
+    {
+      "event_label": "Senate Race NC (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the North Carolina Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in North Carolina?"
+    },
+    {
+      "event_label": "Senate Race NC (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the North Carolina Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in North Carolina?"
+    },
+    {
+      "event_label": "Senate Race NE (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the Nebraska Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in Nebraska?"
+    },
+    {
+      "event_label": "Senate Race NE (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the Nebraska Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in Nebraska?"
+    },
+    {
+      "event_label": "Senate Race NH (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the New Hampshire Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in New Hampshire?"
+    },
+    {
+      "event_label": "Senate Race NH (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the New Hampshire Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in New Hampshire?"
+    },
+    {
+      "event_label": "Senate Race NJ (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the New Jersey Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in New Jersey?"
+    },
+    {
+      "event_label": "Senate Race NJ (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the New Jersey Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in New Jersey?"
+    },
+    {
+      "event_label": "Senate Race NM (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the New Mexico Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in New Mexico?"
+    },
+    {
+      "event_label": "Senate Race NM (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the New Mexico Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in New Mexico?"
+    },
+    {
+      "event_label": "Senate Race OK (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the Oklahoma Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in Oklahoma?"
+    },
+    {
+      "event_label": "Senate Race OK (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the Oklahoma Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in Oklahoma?"
+    },
+    {
+      "event_label": "Senate Race OR (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the Oregon Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in Oregon?"
+    },
+    {
+      "event_label": "Senate Race OR (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the Oregon Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in Oregon?"
+    },
+    {
+      "event_label": "Senate Race RI (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the Rhode Island Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in Rhode Island?"
+    },
+    {
+      "event_label": "Senate Race RI (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the Rhode Island Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in Rhode Island?"
+    },
+    {
+      "event_label": "Senate Race SC (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the South Carolina Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in South Carolina?"
+    },
+    {
+      "event_label": "Senate Race SC (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the South Carolina Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in South Carolina?"
+    },
+    {
+      "event_label": "Senate Race SD (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the South Dakota Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in South Dakota?"
+    },
+    {
+      "event_label": "Senate Race SD (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the South Dakota Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in South Dakota?"
+    },
+    {
+      "event_label": "Senate Race TN (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the Tennessee Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in Tennessee?"
+    },
+    {
+      "event_label": "Senate Race TN (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the Tennessee Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in Tennessee?"
+    },
+    {
+      "event_label": "Senate Race TX (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the Texas Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in Texas?"
+    },
+    {
+      "event_label": "Senate Race TX (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the Texas Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in Texas?"
+    },
+    {
+      "event_label": "Senate Race VA (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the Virginia Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in Virginia?"
+    },
+    {
+      "event_label": "Senate Race VA (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the Virginia Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in Virginia?"
+    },
+    {
+      "event_label": "Senate Race WV (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the West Virginia Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in West Virginia?"
+    },
+    {
+      "event_label": "Senate Race WV (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the West Virginia Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in West Virginia?"
+    },
+    {
+      "event_label": "Senate Race WY (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Democrats win the Wyoming Senate race in 2026?",
+      "market_b": "Will Democratics win the Senate race in Wyoming?"
+    },
+    {
+      "event_label": "Senate Race WY (2026)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Republicans win the Wyoming Senate race in 2026?",
+      "market_b": "Will Republicans win the Senate race in Wyoming?"
+    }
+  ],
+  "liquidity_config": {
+    "enrich_on_scan": true,
+    "min_fillable_contracts": 5,
+    "min_volume_24h": 0
+  },
+  "scanned_at": "2026-07-24T17:07:53.387615+00:00"
+}

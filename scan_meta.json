@@ -1,0 +1,19 @@
+{
+  "last_scan_started": "2026-07-24T17:07:53.387615+00:00",
+  "last_scan_finished": "2026-07-24T17:16:45.033148+00:00",
+  "last_error": null,
+  "scan_mode": "fresh",
+  "scans_in_history": 174,
+  "github_actions": true,
+  "kalshi_funnel": {
+    "raw_fetched": 8493,
+    "dropped_mve": 0,
+    "dropped_horizon": 137,
+    "dropped_no_prices": 0,
+    "dropped_book_quality": 1914,
+    "clean_extracted": 6442,
+    "extract_horizon_days": 150,
+    "category_passed": 204,
+    "dropped_category": 6238
+  }
+}

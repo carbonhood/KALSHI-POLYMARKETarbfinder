@@ -1,0 +1,2057 @@
+[
+  {
+    "timestamp": "2026-07-12T16:05:35.925020+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 0,
+    "market_counts": {},
+    "top_profit": null,
+    "top_event": null,
+    "error": "429 Client Error: Too Many Requests for url: https://external-api.kalshi.com/trade-api/v2/markets?status=open&limit=200&min_close_ts=1783872335&max_close_ts=1796832335&mve_filter=exclude&cursor=CgYIhPHg1gYSHktYTkVYVFRFQU1OQkEtMjZDSE9MTUdSRU43LU1FTQ"
+  },
+  {
+    "timestamp": "2026-07-12T16:12:07.712541+00:00",
+    "opportunity_count": 3,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 133,
+      "polymarket": 3669
+    },
+    "top_profit": 0.03328,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-12T16:36:31.948757+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 0,
+    "market_counts": {},
+    "top_profit": null,
+    "top_event": null,
+    "error": "429 Client Error: Too Many Requests for url: https://external-api.kalshi.com/trade-api/v2/markets?status=open&limit=200&min_close_ts=1783874191&max_close_ts=1796834191&mve_filter=exclude&cursor=CgYI4K3o1gYSFktYTEVBREVSTUxCV0FSLTI2LUpSQU0"
+  },
+  {
+    "timestamp": "2026-07-12T17:28:42.146488+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 0,
+    "market_counts": {},
+    "top_profit": null,
+    "top_event": null,
+    "error": "429 Client Error: Too Many Requests for url: https://external-api.kalshi.com/trade-api/v2/markets?status=open&limit=200&min_close_ts=1783877322&max_close_ts=1796837322&mve_filter=exclude&cursor=CgYIhPHg1gYSHUtYTkVYVFRFQU1OQkEtMjZLTEVPTkFSRDItTllL"
+  },
+  {
+    "timestamp": "2026-07-12T17:29:28.838407+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 0,
+    "market_counts": {},
+    "top_profit": null,
+    "top_event": null,
+    "error": "429 Client Error: Too Many Requests for url: https://external-api.kalshi.com/trade-api/v2/markets?status=open&limit=200&min_close_ts=1783877368&max_close_ts=1796837368&mve_filter=exclude&cursor=CgYI4K3o1gYSFktYTEVBREVSTUxCUkJJLTI2LU1PTFM"
+  },
+  {
+    "timestamp": "2026-07-12T17:42:40.111463+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 0,
+    "market_counts": {},
+    "top_profit": null,
+    "top_event": null,
+    "error": "429 Client Error: Too Many Requests for url: https://external-api.kalshi.com/trade-api/v2/markets?status=open&limit=200&min_close_ts=1783878160&max_close_ts=1796838160&mve_filter=exclude&cursor=CgYIhPHg1gYSG0tYTkVYVFRFQU1OQkEtMjZKRFVSRU4wLUJLTg"
+  },
+  {
+    "timestamp": "2026-07-12T17:43:25.559690+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 0,
+    "market_counts": {},
+    "top_profit": null,
+    "top_event": null,
+    "error": "429 Client Error: Too Many Requests for url: https://external-api.kalshi.com/trade-api/v2/markets?status=open&limit=200&min_close_ts=1783878205&max_close_ts=1796838205&mve_filter=exclude&cursor=CgYIhPHg1gYSHUtYTkVYVFRFQU1OQkEtMjZLTEVPTkFSRDItTllL"
+  },
+  {
+    "timestamp": "2026-07-12T17:49:25.252832+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 0,
+    "market_counts": {},
+    "top_profit": null,
+    "top_event": null,
+    "error": "[Errno 2] No such file or directory: 'kalshi_data.json'"
+  },
+  {
+    "timestamp": "2026-07-12T18:10:39.264130+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 168,
+      "polymarket": 3519
+    },
+    "top_profit": 0.0151,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-12T18:37:52.312605+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 168,
+      "polymarket": 3583
+    },
+    "top_profit": 0.0151,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-12T18:46:27.077539+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 168,
+      "polymarket": 3590
+    },
+    "top_profit": 0.0151,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-12T19:41:12.998127+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 168,
+      "polymarket": 3598
+    },
+    "top_profit": 0.00472,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-12T19:53:44.797342+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 168,
+      "polymarket": 3601
+    },
+    "top_profit": 0.00472,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-12T20:54:45.393088+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 168,
+      "polymarket": 3850
+    },
+    "top_profit": 0.00472,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-12T21:55:56.062452+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 168,
+      "polymarket": 3821
+    },
+    "top_profit": 0.00472,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-12T22:56:00.644713+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 168,
+      "polymarket": 3863
+    },
+    "top_profit": 0.00472,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-13T00:00:26.559132+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 167,
+      "polymarket": 3975
+    },
+    "top_profit": 0.00472,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-13T04:02:13.454214+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 168,
+      "polymarket": 4104
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-13T07:39:19.458922+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 168,
+      "polymarket": 4140
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-13T10:43:00.031789+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 168,
+      "polymarket": 4141
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-13T13:08:11.278074+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 166,
+      "polymarket": 3990
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-13T15:58:15.278657+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 165,
+      "polymarket": 4177
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-13T18:02:29.610964+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 166,
+      "polymarket": 4332
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-13T19:50:21.677313+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 167,
+      "polymarket": 4124
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-13T21:00:04.296455+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 166,
+      "polymarket": 4207
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-13T22:04:17.040280+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 165,
+      "polymarket": 4302
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-13T23:14:27.082986+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 165,
+      "polymarket": 4340
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-14T00:10:18.542371+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 164,
+      "polymarket": 4422
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-14T03:35:36.503429+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 165,
+      "polymarket": 4342
+    },
+    "top_profit": 0.0051,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-14T05:57:44.260885+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 73,
+    "market_counts": {
+      "kalshi": 163,
+      "polymarket": 4405
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-14T08:23:03.563664+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 164,
+      "polymarket": 4439
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-14T10:18:10.691700+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 73,
+    "market_counts": {
+      "kalshi": 164,
+      "polymarket": 4442
+    },
+    "top_profit": 0.0155,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-14T11:56:02.050616+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 164,
+      "polymarket": 4431
+    },
+    "top_profit": 0.0155,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-14T13:58:10.832653+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 157,
+      "polymarket": 4370
+    },
+    "top_profit": 0.0051,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-14T15:37:13.817791+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 155,
+      "polymarket": 4798
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-14T16:52:47.372556+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 156,
+      "polymarket": 4716
+    },
+    "top_profit": 0.0051,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-14T18:07:25.642768+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 157,
+      "polymarket": 4700
+    },
+    "top_profit": 0.0051,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-14T19:43:58.317376+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 156,
+      "polymarket": 4619
+    },
+    "top_profit": 0.0051,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-14T20:45:42.777616+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 156,
+      "polymarket": 4401
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-14T22:01:42.841490+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 157,
+      "polymarket": 4378
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-14T23:11:52.408400+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 156,
+      "polymarket": 4377
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-15T00:07:24.572464+00:00",
+    "opportunity_count": 2,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 158,
+      "polymarket": 4403
+    },
+    "top_profit": 0.00591,
+    "top_event": "Federal Reserve July 2026 FOMC",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-15T03:36:32.521654+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 157,
+      "polymarket": 4456
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-15T05:59:53.232228+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 157,
+      "polymarket": 4438
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-15T08:31:18.564807+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 158,
+      "polymarket": 4464
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-15T10:29:11.971387+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 156,
+      "polymarket": 4465
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-15T12:03:40.209726+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 157,
+      "polymarket": 4335
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-15T14:11:00.770294+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 161,
+      "polymarket": 4650
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-15T15:52:40.610987+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 161,
+      "polymarket": 4643
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-15T17:20:51.994483+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 161,
+      "polymarket": 4607
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-15T18:38:51.242551+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 73,
+    "market_counts": {
+      "kalshi": 161,
+      "polymarket": 4598
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-15T19:52:55.464893+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 161,
+      "polymarket": 4544
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-15T21:03:44.607588+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 159,
+      "polymarket": 4273
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-15T22:14:00.717888+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 159,
+      "polymarket": 4334
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-15T23:15:47.519333+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 159,
+      "polymarket": 4413
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-16T00:56:49.092519+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 159,
+      "polymarket": 4310
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-16T04:14:52.232062+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 4326
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-16T06:35:29.262660+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 4297
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-16T09:03:40.155623+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 157,
+      "polymarket": 4190
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-16T11:12:58.283966+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 156,
+      "polymarket": 4153
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-16T12:53:44.250027+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 161,
+      "polymarket": 4206
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-16T15:05:33.304913+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 161,
+      "polymarket": 4523
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-16T16:42:37.416608+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 161,
+      "polymarket": 4471
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-16T17:54:52.866387+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 161,
+      "polymarket": 4446
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-16T19:17:42.520740+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 161,
+      "polymarket": 4324
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-16T20:26:57.403396+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 161,
+      "polymarket": 4047
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-16T21:35:42.459792+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 4173
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-16T22:39:09.895430+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 4259
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-16T23:39:07.928244+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 161,
+      "polymarket": 4364
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-17T01:12:45.401493+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 161,
+      "polymarket": 4355
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-17T04:28:21.540734+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 158,
+      "polymarket": 4307
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-17T06:58:38.743080+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 4202
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-17T09:16:58.946942+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 4219
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-17T11:06:10.899124+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 4129
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-17T12:36:54.436417+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 161,
+      "polymarket": 4081
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-17T14:16:51.431358+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 161,
+      "polymarket": 4436
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-17T15:57:01.504453+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 4381
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-17T17:19:09.410765+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 161,
+      "polymarket": 4349
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-17T18:35:09.015749+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 161,
+      "polymarket": 4331
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-17T19:48:17.848002+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 4060
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-17T20:59:51.502416+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 161,
+      "polymarket": 3995
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-17T22:02:08.643171+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 3918
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-17T23:09:44.115852+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 3932
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-18T00:09:59.460938+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 161,
+      "polymarket": 4022
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-18T03:33:38.862078+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 4279
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-18T05:52:31.393745+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 159,
+      "polymarket": 4352
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-18T07:58:01.555910+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 4347
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-18T09:41:37.109695+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 159,
+      "polymarket": 4366
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-18T10:49:53.999690+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 159,
+      "polymarket": 4050
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-18T11:55:10.761602+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 159,
+      "polymarket": 3964
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-18T13:23:40.871051+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 3890
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-18T14:35:04.625563+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 159,
+      "polymarket": 3913
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-18T15:38:37.260441+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 0,
+    "market_counts": {},
+    "top_profit": null,
+    "top_event": null,
+    "error": "500 Server Error: Internal Server Error for url: https://gamma-api.polymarket.com/public-search?q=Will+Ta%27Niya+Latson+be+selected+to+the+Women%27s+Pro+Basketball+All-Rookie+team+in&limit_per_type=5&events_status=active"
+  },
+  {
+    "timestamp": "2026-07-18T16:37:30.794570+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 3878
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-18T17:41:52.076282+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 3878
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-18T18:38:47.816749+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 159,
+      "polymarket": 3874
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-18T19:52:38.886795+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 158,
+      "polymarket": 3981
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-18T20:54:24.603752+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 158,
+      "polymarket": 4069
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-18T21:54:46.761121+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 159,
+      "polymarket": 4093
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-18T22:54:02.942426+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 159,
+      "polymarket": 4123
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-18T23:56:57.324078+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 158,
+      "polymarket": 4124
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-19T03:39:22.457449+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 158,
+      "polymarket": 3781
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-19T06:16:19.491362+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 158,
+      "polymarket": 3771
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-19T08:54:10.882437+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 158,
+      "polymarket": 3791
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-19T10:37:23.809939+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 158,
+      "polymarket": 3787
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-19T11:43:00.254558+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 0,
+    "market_counts": {},
+    "top_profit": null,
+    "top_event": null,
+    "error": "HTTPSConnectionPool(host='gamma-api.polymarket.com', port=443): Read timed out. (read timeout=30)"
+  },
+  {
+    "timestamp": "2026-07-19T12:39:07.077567+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 159,
+      "polymarket": 3749
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-19T14:13:16.452734+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 158,
+      "polymarket": 3754
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-19T15:18:03.359438+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 158,
+      "polymarket": 3749
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-19T16:27:33.198328+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 157,
+      "polymarket": 3733
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-19T17:33:36.370236+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 158,
+      "polymarket": 3714
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-19T18:39:37.971512+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 159,
+      "polymarket": 3738
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-19T19:55:16.429433+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 157,
+      "polymarket": 3701
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-19T20:55:23.295066+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 158,
+      "polymarket": 3657
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-19T21:57:38.816566+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 157,
+      "polymarket": 3891
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-19T23:01:42.734121+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 158,
+      "polymarket": 3893
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-20T00:13:13.400450+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 3862
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-20T04:08:21.290113+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 0,
+    "market_counts": {},
+    "top_profit": null,
+    "top_event": null,
+    "error": "500 Server Error: Internal Server Error for url: https://gamma-api.polymarket.com/public-search?q=Will+Lowe%27s+Companies+Inc.+report+Above+236+million+customer+transactions+in+Q2+&limit_per_type=5&events_status=active"
+  },
+  {
+    "timestamp": "2026-07-20T07:30:34.676563+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 158,
+      "polymarket": 3961
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-20T10:30:39.711422+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 158,
+      "polymarket": 4006
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-20T12:55:45.930124+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 161,
+      "polymarket": 3960
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-20T15:14:37.071638+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 159,
+      "polymarket": 4214
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-20T16:47:11.321104+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 158,
+      "polymarket": 4182
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-20T18:55:20.960499+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 4205
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-20T20:24:22.083187+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 3882
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-20T21:44:16.239175+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 3862
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-20T22:41:38.257528+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 3891
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-20T23:42:10.036492+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 3903
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-21T01:11:16.734381+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 3832
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-21T04:34:07.543376+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 3853
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-21T07:21:19.812171+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 159,
+      "polymarket": 3902
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-21T10:03:30.846237+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 3907
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-21T12:01:25.650529+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 160,
+      "polymarket": 3860
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-21T14:24:02.637152+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 4176
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-21T16:03:04.832565+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 73,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 4032
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-21T17:46:53.528611+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 4142
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-21T19:36:54.691730+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 208,
+      "polymarket": 4095
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-21T20:49:04.760450+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 3763
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-21T22:05:50.415860+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 3789
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-21T23:13:01.238859+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 3828
+    },
+    "top_profit": 0.0055,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-22T00:10:05.785973+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 3864
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-22T03:48:08.632824+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 203,
+      "polymarket": 3888
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-22T06:32:00.068762+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 203,
+      "polymarket": 3888
+    },
+    "top_profit": 0.02088,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-22T09:16:06.794031+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 203,
+      "polymarket": 3888
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-22T11:25:35.909292+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 3870
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-22T13:01:44.303327+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 3844
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-22T15:17:20.359108+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 4003
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-22T16:56:40.704276+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 3844
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-22T18:14:48.699709+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 73,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 4122
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-22T19:48:50.670941+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 73,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 4000
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-22T21:18:09.465037+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 73,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 3716
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-22T22:18:17.276958+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 73,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 3746
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-22T23:30:53.511119+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 73,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 3737
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-23T01:13:55.486554+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 73,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 3725
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-23T04:39:56.256366+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 73,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 3759
+    },
+    "top_profit": 0.03114,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-23T07:20:17.602867+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 0,
+    "market_counts": {},
+    "top_profit": null,
+    "top_event": null,
+    "error": "503 Server Error: Service Unavailable for url: https://external-api.kalshi.com/trade-api/v2/markets?status=open&limit=200&min_close_ts=1784791217&max_close_ts=1797751217&mve_filter=exclude"
+  },
+  {
+    "timestamp": "2026-07-23T10:00:12.089121+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 3811
+    },
+    "top_profit": 0.01088,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-23T11:59:02.770218+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 3737
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-23T14:25:38.303863+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 3738
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-23T16:09:01.884316+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 3795
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-23T17:47:25.560115+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 4156
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-23T19:23:40.588233+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 4151
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-23T20:37:04.227233+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 3792
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-23T21:44:34.047122+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 3821
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-23T22:41:03.806897+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 3854
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-23T23:41:35.558164+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 3881
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-24T01:12:00.312565+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 3879
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-24T04:35:20.000338+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 3941
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-24T07:19:32.346424+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 4270
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-24T09:56:56.870232+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 4335
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-24T11:48:34.782779+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 4099
+    },
+    "top_profit": 0.02114,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-24T13:52:16.251634+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 4479
+    },
+    "top_profit": 0.01062,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-24T15:26:56.782875+00:00",
+    "opportunity_count": 1,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 203,
+      "polymarket": 4479
+    },
+    "top_profit": 0.01062,
+    "top_event": "U3 Unemployment release (2026-07)",
+    "error": null
+  },
+  {
+    "timestamp": "2026-07-24T17:07:53.387615+00:00",
+    "opportunity_count": 0,
+    "matched_pairs": 74,
+    "market_counts": {
+      "kalshi": 204,
+      "polymarket": 4275
+    },
+    "top_profit": null,
+    "top_event": null,
+    "error": null
+  }
+]
