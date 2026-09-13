@@ -1,0 +1,42 @@
+{
+  "version": "1.2",
+  "venues": {
+    "kalshi": true,
+    "polymarket": true,
+    "forecastex": true,
+    "forecastex_ibkr": false
+  },
+  "categories": [
+    "macro",
+    "politics_elections",
+    "geopolitics",
+    "sports_pm",
+    "crypto",
+    "legal"
+  ],
+  "limits": {
+    "kalshi_max_markets": 7500,
+    "polymarket_max_events": 1500,
+    "scan_horizon_days": 150,
+    "macro_horizon_days": 45,
+    "politics_horizon_days": 150
+  },
+  "hold_days_by_category": {
+    "macro": 45,
+    "politics_elections": 150,
+    "geopolitics": 90,
+    "sports_pm": 7,
+    "crypto": 90,
+    "legal": 120
+  },
+  "filters": {
+    "min_profit": 0.003,
+    "min_annualized_return": 0.05,
+    "max_macro_hold_days": 45
+  },
+  "liquidity": {
+    "enrich_on_scan": true,
+    "min_fillable_contracts": 5,
+    "min_volume_24h": 0
+  }
+}
