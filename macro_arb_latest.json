@@ -1,0 +1,9 @@
+{
+  "macro_market_counts": {},
+  "matched_pairs": 0,
+  "opportunity_count": 0,
+  "opportunities": [],
+  "matched_pair_summaries": [],
+  "scanned_at": "2026-11-07T13:34:57.254045+00:00",
+  "error": "429 Client Error: Too Many Requests for url: https://gamma-api.polymarket.com/public-search?q=Will+West+Virginia%E2%80%99s+total+coal+production+for+2026+be+above+74+million+short+to&limit_per_type=5&events_status=active"
+}
