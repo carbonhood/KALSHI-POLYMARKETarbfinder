@@ -1,0 +1,279 @@
+{
+  "macro_market_counts": {
+    "kalshi": 103,
+    "polymarket": 4044,
+    "forecastex": 0,
+    "kalshi_clean": 5195
+  },
+  "kalshi_funnel": {
+    "raw_fetched": 8495,
+    "dropped_mve": 0,
+    "dropped_horizon": 127,
+    "dropped_no_prices": 0,
+    "dropped_book_quality": 3173,
+    "clean_extracted": 5195,
+    "extract_horizon_days": 150,
+    "category_passed": 103,
+    "dropped_category": 5092
+  },
+  "matched_pairs": 12,
+  "opportunity_count": 1,
+  "opportunities": [
+    {
+      "type": "cross_venue_macro",
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "strategy": "buy_yes_polymarket_buy_no_kalshi",
+      "profit": 0.00944,
+      "total_cost": 0.99056,
+      "yes_fee": 0.00056,
+      "no_fee": 0.01,
+      "buy_plan": {
+        "type": "cross_venue",
+        "summary": "Buy YES on Polymarket and NO on Kalshi",
+        "strategy": "buy_yes_polymarket_buy_no_kalshi",
+        "legs": [
+          {
+            "platform": "Polymarket",
+            "side": "YES",
+            "market": "Will the November 2026 unemployment rate be 4.3%?",
+            "price": 0.06,
+            "fee": 0.00056,
+            "total": 0.06056,
+            "size_at_price": 0.0,
+            "volume_24h": 121.636365
+          },
+          {
+            "platform": "Kalshi",
+            "side": "NO",
+            "market": "Unemployment rate in Nov 2026?",
+            "price": 0.92,
+            "fee": 0.01,
+            "total": 0.93,
+            "size_at_price": null,
+            "volume_24h": 0.0
+          }
+        ]
+      },
+      "event_label": "U3 Unemployment release (2026-11)",
+      "event_type": "econ_release",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "polymarket_outcome": "exact_4.3",
+      "kalshi_outcome": "exact_4.3",
+      "category": "macro",
+      "hold_days": 12.74,
+      "annualized_return": 0.2705,
+      "annualized_return_pct": 27.05,
+      "score": 0.2569,
+      "liquidity": {
+        "max_fillable_contracts": null,
+        "max_profit_usd": null,
+        "max_capital_usd": null,
+        "legs": [
+          {
+            "platform": "Polymarket",
+            "side": "YES",
+            "price": 0.06,
+            "size_at_price": 0.0,
+            "volume_24h": 121.636365,
+            "volume": 1474.389992,
+            "open_interest": null,
+            "liquidity": 3876.9025
+          },
+          {
+            "platform": "Kalshi",
+            "side": "NO",
+            "price": 0.92,
+            "size_at_price": null,
+            "volume_24h": 0.0,
+            "volume": 993.8,
+            "open_interest": 253.9,
+            "liquidity": null
+          }
+        ],
+        "activity": {
+          "min_volume_24h": 0.0,
+          "min_open_interest": 253.9
+        }
+      },
+      "market_a": {
+        "market_question": "Will the November 2026 unemployment rate be 4.3%?",
+        "yes_price": 0.06,
+        "no_price": 0.9,
+        "fee_rate": 0.01,
+        "fees_enabled": true,
+        "end_date": "2026-12-04T13:30:00Z",
+        "days_to_resolution": 12.74,
+        "group_item_title": "4.3%",
+        "event_matchup": null,
+        "event_title": "November Unemployment Rate",
+        "event_id": "1357780",
+        "yes_token_id": "54036356756049081372306238217262467682183235845256183802300815021278952183295",
+        "no_token_id": "27839314007477141313518368120484073439903070631913418519009964958004622503073",
+        "condition_id": "0x1f06eb358a4478071d5ff5bed7b261de3fb0c417eab545eee561646db328b44d",
+        "price_source": "clob_best_ask",
+        "volume": 1474.389992,
+        "volume_24h": 121.636365,
+        "liquidity": 3876.9025,
+        "open_interest": null,
+        "event_key": [
+          "econ_release",
+          "u3_unemployment",
+          2026,
+          11
+        ],
+        "canonical_outcome": "exact_4.3",
+        "platform": "Polymarket",
+        "category": "macro",
+        "hold_days_estimate": 12.74
+      },
+      "market_b": {
+        "market_question": "Unemployment rate in Nov 2026?",
+        "yes_price": 0.09,
+        "no_price": 0.92,
+        "ticker": "KXECONSTATU3-26NOV-T4.3",
+        "event_ticker": "KXECONSTATU3-26NOV",
+        "close_time": "2026-12-04T13:29:00Z",
+        "end_date": "2026-12-04T13:29:00Z",
+        "days_to_resolution": 12.74,
+        "yes_sub_title": "Exactly 4.3%",
+        "no_sub_title": "Exactly 4.3%",
+        "occurrence_datetime": null,
+        "rules_primary": "If the Unemployment rate is exactly 4.3% in Nov 2026, then the market resolves to Yes.",
+        "fee_multiplier": 0.07,
+        "platform": "Kalshi",
+        "yes_ask_size": 1000.0,
+        "no_ask_size": null,
+        "volume": 993.8,
+        "volume_24h": 0.0,
+        "open_interest": 253.9,
+        "event_key": [
+          "econ_release",
+          "u3_unemployment",
+          2026,
+          11
+        ],
+        "canonical_outcome": "exact_4.3",
+        "category": "macro",
+        "hold_days_estimate": 12.74
+      }
+    }
+  ],
+  "matched_pair_summaries": [
+    {
+      "event_label": "Federal Reserve (2026-12)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Fed decrease interest rates by 50+ bps after the December 2026 meeting?",
+      "market_b": "Will the Federal Reserve Cut rates by >25bps at their December 2026 meeting?"
+    },
+    {
+      "event_label": "Federal Reserve (2026-12)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Fed decrease interest rates by 25 bps after the December 2026 meeting?",
+      "market_b": "Will the Federal Reserve Cut rates by 25bps at their December 2026 meeting?"
+    },
+    {
+      "event_label": "Federal Reserve (2026-12)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will there be no change in Fed interest rates after the December 2026 meeting?",
+      "market_b": "Will the Federal Reserve Hike rates by 0bps at their December 2026 meeting?"
+    },
+    {
+      "event_label": "Federal Reserve (2026-12)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Fed increase interest rates by 25 bps after the December 2026 meeting?",
+      "market_b": "Will the Federal Reserve Hike rates by 25bps at their December 2026 meeting?"
+    },
+    {
+      "event_label": "Federal Reserve (2026-12)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the Fed increase interest rates by 50+ bps after the December 2026 meeting?",
+      "market_b": "Will the Federal Reserve Hike rates by >25bps at their December 2026 meeting?"
+    },
+    {
+      "event_label": "U3 Unemployment release (2026-11)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the November 2026 unemployment rate be 3.9%?",
+      "market_b": "Unemployment rate in Nov 2026?"
+    },
+    {
+      "event_label": "U3 Unemployment release (2026-11)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the November 2026 unemployment rate be 4.0%?",
+      "market_b": "Unemployment rate in Nov 2026?"
+    },
+    {
+      "event_label": "U3 Unemployment release (2026-11)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the November 2026 unemployment rate be 4.1%?",
+      "market_b": "Unemployment rate in Nov 2026?"
+    },
+    {
+      "event_label": "U3 Unemployment release (2026-11)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the November 2026 unemployment rate be 4.2%?",
+      "market_b": "Unemployment rate in Nov 2026?"
+    },
+    {
+      "event_label": "U3 Unemployment release (2026-11)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the November 2026 unemployment rate be 4.3%?",
+      "market_b": "Unemployment rate in Nov 2026?"
+    },
+    {
+      "event_label": "U3 Unemployment release (2026-11)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the November 2026 unemployment rate be 4.4%?",
+      "market_b": "Unemployment rate in Nov 2026?"
+    },
+    {
+      "event_label": "U3 Unemployment release (2026-11)",
+      "match_method": "event_cluster_equivalent_outcome",
+      "confidence": 0.95,
+      "platform_a": "Polymarket",
+      "platform_b": "Kalshi",
+      "market_a": "Will the November 2026 unemployment rate be 4.5%?",
+      "market_b": "Unemployment rate in Nov 2026?"
+    }
+  ],
+  "liquidity_config": {
+    "enrich_on_scan": true,
+    "min_fillable_contracts": 5,
+    "min_volume_24h": 0
+  },
+  "scanned_at": "2026-11-21T19:40:03.958935+00:00"
+}
